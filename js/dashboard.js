@@ -1,37 +1,78 @@
-function carregarDashboard() {
-  const motos = JSON.parse(localStorage.getItem('motos')) || [];
-  const bandidos = JSON.parse(localStorage.getItem('bandidos')) || [];
-  const bracoes = JSON.parse(localStorage.getItem('bracoes')) || [];
-  const infracoes = JSON.parse(localStorage.getItem('infracoes')) || [];
-
-  document.getElementById('totalMotos').innerText = motos.length;
-  document.getElementById('totalFurtadas').innerText = motos.filter(m => m.status === 'furtada').length;
-  document.getElementById('totalBandidos').innerText = bandidos.length;
-  document.getElementById('totalBracoes').innerText = bracoes.length;
-
-  atualizarOcorrencias(motos, infracoes);
-}
-
-function atualizarOcorrencias(motos, infracoes) {
-  const lista = document.getElementById('listaOcorrencias');
-  lista.innerHTML = '';
-
-  const motosFurtadas = motos.filter(m => m.status === 'furtada');
-  motosFurtadas.forEach(moto => {
-    const li = document.createElement('li');
-    li.innerHTML = `<strong>${moto.placa}</strong> - ${moto.modelo} (${moto.cor})`;
-
-    const infraRelacionadas = infracoes.filter(i => i.placa === moto.placa);
-    if (infraRelacionadas.length) {
-      const ul = document.createElement('ul');
-      infraRelacionadas.slice(-3).forEach(inf => {
-        const infLi = document.createElement('li');
-        infLi.innerHTML = `&rarr; ${inf.tipo} em ${new Date(inf.data).toLocaleString('pt-BR')}`;
-        ul.appendChild(infLi);
-      });
-      li.appendChild(ul);
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>MESQUITA FIND - Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    #mapa {
+      width: 100%;
+      height: 300px;
+      border-radius: 10px;
+      margin-top: 10px;
     }
+    .card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .card ul li {
+      margin-bottom: 8px;
+      background: #eee;
+      padding: 8px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body onload="verificarLogin(['admin','consulta']); carregarDashboard();">
 
-    lista.appendChild(li);
-  });
-}
+  <header>
+    <h1>MESQUITA FIND</h1>
+    <button onclick="logout()">Sair</button>
+  </header>
+
+  <main class="container">
+    <section class="dashboard">
+      <div class="stat">
+        <h2 id="totalMotos">0</h2>
+        <p>Motos Cadastradas</p>
+      </div>
+      <div class="stat">
+        <h2 id="totalFurtadas">0</h2>
+        <p>Motos Furtadas</p>
+      </div>
+      <div class="stat">
+        <h2 id="totalBandidos">0</h2>
+        <p>Bandidos</p>
+      </div>
+      <div class="stat">
+        <h2 id="totalBracoes">0</h2>
+        <p>Brações</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3><i class="fa fa-exclamation-triangle"></i> Últimas Ocorrências de Motos Furtadas</h3>
+      <ul id="listaOcorrencias"></ul>
+    </section>
+
+    <section class="card">
+      <h3><i class="fa fa-map-marker-alt"></i> Mapa de Ocorrências</h3>
+      <div id="mapa">(Carregando mapa...)</div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MESQUITA FIND</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/mapa.js"></script>
+
+  <!-- Google Maps API -->
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDosvnNf8V9A2cQ4T7AuZnRgzVncCr7qBQ&callback=inicializarMapa">
+  </script>
+</body>
+</html>
