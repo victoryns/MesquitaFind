@@ -310,3 +310,50 @@ nav.card ul li a:focus-visible {
     max-width: 100%;
   }
 }
+/* LOGIN PERSONALIZADO */
+
+.login-page {
+  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.login-card {
+  background: #ffffff;
+  padding: 40px 32px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.login-card h1 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.login-card p {
+  margin-bottom: 24px;
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+.login-card input,
+.login-card select,
+.login-card button {
+  margin-bottom: 16px;
+}
+
