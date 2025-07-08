@@ -1,55 +1,37 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>MESQUITA FIND - Dashboard</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body onload="verificarLogin(['admin','consulta']); carregarDashboard();">
+function carregarDashboard() {
+  const motos = JSON.parse(localStorage.getItem('motos')) || [];
+  const bandidos = JSON.parse(localStorage.getItem('bandidos')) || [];
+  const bracoes = JSON.parse(localStorage.getItem('bracoes')) || [];
+  const infracoes = JSON.parse(localStorage.getItem('infracoes')) || [];
 
-  <header>
-    <h1>MESQUITA FIND</h1>
-    <button onclick="logout()">Sair</button>
-  </header>
+  document.getElementById('totalMotos').innerText = motos.length;
+  document.getElementById('totalFurtadas').innerText = motos.filter(m => m.status === 'furtada').length;
+  document.getElementById('totalBandidos').innerText = bandidos.length;
+  document.getElementById('totalBracoes').innerText = bracoes.length;
 
-  <main class="container">
-    <section class="dashboard">
-      <div class="stat">
-        <h2 id="totalMotos">0</h2>
-        <p>Motos Cadastradas</p>
-      </div>
-      <div class="stat">
-        <h2 id="totalFurtadas">0</h2>
-        <p>Motos Furtadas</p>
-      </div>
-      <div class="stat">
-        <h2 id="totalBandidos">0</h2>
-        <p>Bandidos</p>
-      </div>
-      <div class="stat">
-        <h2 id="totalBracoes">0</h2>
-        <p>Brações</p>
-      </div>
-    </section>
+  atualizarOcorrencias(motos, infracoes);
+}
 
-    <section class="card">
-      <h3><i class="fa fa-exclamation-triangle"></i> Últimas Ocorrências de Motos Furtadas</h3>
-      <ul id="listaOcorrencias"></ul>
-    </section>
+function atualizarOcorrencias(motos, infracoes) {
+  const lista = document.getElementById('listaOcorrencias');
+  lista.innerHTML = '';
 
-    <section class="card">
-      <h3><i class="fa fa-map-marker-alt"></i> Mapa de Ocorrências</h3>
-      <div id="mapa" style="width: 100%; height: 300px; background: #ddd; border-radius: 10px; text-align: center; line-height: 300px;">
-        (Mapa aqui futuramente com Google Maps API ou Leaflet)
-      </div>
-    </section>
-  </main>
+  const motosFurtadas = motos.filter(m => m.status === 'furtada');
+  motosFurtadas.forEach(moto => {
+    const li = document.createElement('li');
+    li.innerHTML = `<strong>${moto.placa}</strong> - ${moto.modelo} (${moto.cor})`;
 
-  <footer>
-    <p>&copy; 2025 MESQUITA FIND</p>
-  </footer>
+    const infraRelacionadas = infracoes.filter(i => i.placa === moto.placa);
+    if (infraRelacionadas.length) {
+      const ul = document.createElement('ul');
+      infraRelacionadas.slice(-3).forEach(inf => {
+        const infLi = document.createElement('li');
+        infLi.innerHTML = `&rarr; ${inf.tipo} em ${new Date(inf.data).toLocaleString('pt-BR')}`;
+        ul.appendChild(infLi);
+      });
+      li.appendChild(ul);
+    }
 
-  <script src="js/auth.js"></script>
-  <script src="js/dashboard.js"></script>
-</body>
-</html>
+    lista.appendChild(li);
+  });
+}
