@@ -5,18 +5,20 @@
   <title>MESQUITA FIND - Login</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <div class="login-container">
-    <h1>MESQUITA FIND</h1>
-    <p>Acesso ao sistema</p>
-    <input type="text" id="usuario" placeholder="Usuário">
-    <input type="password" id="senha" placeholder="Senha">
-    <select id="perfil">
-      <option value="admin">Admin</option>
-      <option value="consulta">Consulta</option>
-    </select>
-    <button onclick="login()">Entrar</button>
-    <div id="loginErro" class="alert red" style="display:none;">Credenciais inválidas</div>
+<body class="login-page">
+  <div class="login-wrapper">
+    <div class="login-card">
+      <h1>MESQUITA FIND</h1>
+      <p>Acesso ao sistema</p>
+      <input type="text" id="usuario" placeholder="Usuário">
+      <input type="password" id="senha" placeholder="Senha">
+      <select id="perfil">
+        <option value="admin">Admin</option>
+        <option value="consulta">Consulta</option>
+      </select>
+      <button onclick="login()">Entrar</button>
+      <div id="loginErro" class="alert red" style="display:none;">Credenciais inválidas</div>
+    </div>
   </div>
 
   <script src="js/auth.js"></script>
