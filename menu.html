@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>MESQUITA FIND - Menu</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body onload="verificarLogin(['admin','consulta']);">
+
+  <header>
+    <h1>MESQUITA FIND</h1>
+    <button onclick="logout()">Sair</button>
+  </header>
+
+  <main class="container">
+    <nav class="card">
+      <h3>Menu Principal</h3>
+      <ul style="list-style:none; padding-left:0;">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="cadastro.html">Cadastros</a></li>
+        <li><a href="consulta.html">Consultas</a></li>
+        <li><a href="exportar.html">Exportar Dados</a></li>
+        <li><a href="mapa.html">Mapa de Ocorrências</a></li>
+      </ul>
+    </nav>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MESQUITA FIND</p>
+  </footer>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

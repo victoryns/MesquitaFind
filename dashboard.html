@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>MESQUITA FIND - Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="verificarLogin(['admin','consulta']); carregarDashboard();">
+
+  <header>
+    <h1>MESQUITA FIND</h1>
+    <button onclick="logout()">Sair</button>
+  </header>
+
+  <main class="container">
+    <section class="dashboard">
+      <div class="stat">
+        <h2 id="totalMotos">0</h2>
+        <p>Motos Cadastradas</p>
+      </div>
+      <div class="stat">
+        <h2 id="totalFurtadas">0</h2>
+        <p>Motos Furtadas</p>
+      </div>
+      <div class="stat">
+        <h2 id="totalBandidos">0</h2>
+        <p>Bandidos</p>
+      </div>
+      <div class="stat">
+        <h2 id="totalBracoes">0</h2>
+        <p>Brações</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3><i class="fa fa-exclamation-triangle"></i> Últimas Ocorrências de Motos Furtadas</h3>
+      <ul id="listaOcorrencias"></ul>
+    </section>
+
+    <section class="card">
+      <h3><i class="fa fa-map-marker-alt"></i> Mapa de Ocorrências</h3>
+      <div id="mapa" style="width: 100%; height: 300px; background: #ddd; border-radius: 10px; text-align: center; line-height: 300px;">
+        (Mapa aqui futuramente com Google Maps API ou Leaflet)
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MESQUITA FIND</p>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

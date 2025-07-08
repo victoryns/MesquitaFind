@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>MESQUITA FIND - Consultas</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="verificarLogin(['admin','consulta']);">
+
+  <header>
+    <h1>Consultas - MESQUITA FIND</h1>
+    <button onclick="logout()">Sair</button>
+  </header>
+
+  <main class="container">
+    <!-- Consulta por Placa -->
+    <section class="card">
+      <h3>Consulta por Placa</h3>
+      <input type="text" id="consultaPlaca" placeholder="Digite a placa">
+      <button onclick="consultarPlaca()">Consultar</button>
+      <div id="resultadoConsulta"></div>
+    </section>
+
+    <!-- Consulta de Bração -->
+    <section class="card">
+      <h3>Consulta de Bração</h3>
+      <input type="text" id="consultaBracao" placeholder="Digite o nome do bração">
+      <button onclick="consultarBracao()">Consultar</button>
+      <div id="resultadoBracao"></div>
+    </section>
+
+    <!-- Infrações por Placa -->
+    <section class="card">
+      <h3>Infracções da Placa</h3>
+      <input type="text" id="consultaInfracaoPlaca" placeholder="Digite a placa">
+      <button onclick="consultarInfracoes()">Ver Infracções</button>
+      <ul id="listaInfracoes"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MESQUITA FIND</p>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script src="js/consulta.js"></script>
+</body>
+</html>

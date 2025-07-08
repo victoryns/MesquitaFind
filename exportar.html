@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>MESQUITA FIND - Exportar Dados</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="verificarLogin(['admin']);">
+
+  <header>
+    <h1>Exportar Dados - MESQUITA FIND</h1>
+    <button onclick="logout()">Sair</button>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h3>Exportar Cadastros</h3>
+      <button onclick="exportarMotosCSV()">Exportar Motos (CSV)</button>
+      <button onclick="exportarInfracoesCSV()">Exportar Infrações (CSV)</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MESQUITA FIND</p>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script src="js/exportar.js"></script>
+</body>
+</html>
