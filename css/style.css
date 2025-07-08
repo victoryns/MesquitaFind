@@ -37,26 +37,29 @@ header button {
   position: absolute;
   top: 20px;
   right: 20px;
-  background: #dc2626; /* vermelho forte */
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
   color: white;
   border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
+  padding: 10px 18px;
+  border-radius: 12px;
   cursor: pointer;
-  font-weight: 600;
-  font-size: 0.95rem;
-  box-shadow: 0 4px 8px rgba(220, 38, 38, 0.4);
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 6px 14px rgba(220, 38, 38, 0.6);
   transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
   user-select: none;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  letter-spacing: 0.6px;
 }
 header button:hover {
-  background-color: #b91c1c;
-  box-shadow: 0 6px 14px rgba(185, 28, 28, 0.6);
+  background: linear-gradient(135deg, #b91c1c, #7f1515);
+  box-shadow: 0 8px 18px rgba(185, 28, 28, 0.8);
   transform: translateY(-2px);
 }
 header button:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 6px rgba(185, 28, 28, 0.7);
+  background: linear-gradient(135deg, #7f1515, #b91c1c);
+  box-shadow: 0 4px 10px rgba(185, 28, 28, 0.9);
+  transform: translateY(1px);
 }
 
 /* CONTAINER */
@@ -222,30 +225,42 @@ nav.card ul {
 nav.card ul li a {
   display: block;
   padding: 18px 28px;
-  background-color: #334155;
+  background: linear-gradient(135deg, #334155, #1e293b);
   color: white;
   font-weight: 700;
   text-decoration: none;
   border-radius: 14px;
-  box-shadow: 0 6px 12px rgba(51, 65, 85, 0.4);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
-  font-size: 1.2rem;
+  box-shadow: 0 8px 16px rgba(51, 65, 85, 0.6);
+  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+  font-size: 1.3rem;
   text-align: center;
   user-select: none;
   letter-spacing: 0.6px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
+
 nav.card ul li a:hover,
 nav.card ul li a:focus-visible {
-  background-color: #2563eb;
-  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.7);
-  transform: translateY(-4px);
-  outline-offset: 4px;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  box-shadow: 0 14px 28px rgba(37, 99, 235, 0.85);
+  transform: translateY(-5px);
+  outline-offset: 5px;
   outline-color: #2563eb;
   outline-style: solid;
 }
+
 nav.card ul li a:active {
-  transform: translateY(-1px);
-  box-shadow: 0 7px 14px rgba(37, 99, 235, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 1);
+}
+
+/* Foco acessível para teclado */
+nav.card ul li a:focus-visible {
+  outline-width: 3px;
+  outline-style: solid;
+  outline-color: #60a5fa;
+  outline-offset: 6px;
+  box-shadow: 0 0 10px #60a5faaa;
 }
 
 /* RESPONSIVIDADE */
