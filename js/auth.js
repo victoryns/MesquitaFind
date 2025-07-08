@@ -5,7 +5,7 @@ function login() {
 
   if (usuario && senha) {
     localStorage.setItem('usuarioLogado', JSON.stringify({ usuario, perfil }));
-    window.location.href = 'dashboard.html';
+    window.location.href = 'menu.html';
   } else {
     document.getElementById('loginErro').style.display = 'block';
   }
