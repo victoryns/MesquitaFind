@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mapa de Ocorrências</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    header {
+      background-color: #111;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .container {
+      padding: 20px;
+    }
+    #mapa {
+      height: 500px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      margin-top: 20px;
+    }
+    footer {
+      background: #222;
+      color: #aaa;
+      text-align: center;
+      padding: 10px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mapa de Ocorrências</h1>
+    <a href="menu.html">← Voltar ao Menu</a>
+  </header>
+
+  <div class="container">
+    <p>As infrações com localização serão exibidas no mapa abaixo:</p>
+    <div id="mapa"></div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 MESQUITA FIND. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="js/mapa.js"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDosvnNf8V9A2cQ4T7AuZnRgzVncCr7qBQ&callback=inicializarMapa">
+  </script>
+</body>
+</html>
