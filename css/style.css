@@ -1,155 +1,297 @@
-/* style.css - Estilo geral para MESQUITA FIND */
+/* style.css - Estilo geral para MESQUITA FIND - Versão Profissional */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: #f4f4f4;
-  color: #333;
+  background: linear-gradient(135deg, #e2e8f0, #f8fafc);
+  color: #2c3e50;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
+/* HEADER */
+
 header {
-  background-color: #111;
-  color: white;
-  padding: 20px;
+  background-color: #1f2937; /* cinza escuro */
+  color: #f9fafb; /* quase branco */
+  padding: 24px 20px;
   text-align: center;
   position: relative;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  font-size: 1.8rem;
+  user-select: none;
 }
 
 header button {
   position: absolute;
   top: 20px;
   right: 20px;
-  background: #a00;
+  background: #dc2626; /* vermelho forte */
   color: white;
   border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
+  padding: 10px 16px;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 8px rgba(220, 38, 38, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
+  user-select: none;
 }
+header button:hover {
+  background-color: #b91c1c;
+  box-shadow: 0 6px 14px rgba(185, 28, 28, 0.6);
+  transform: translateY(-2px);
+}
+header button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 6px rgba(185, 28, 28, 0.7);
+}
+
+/* CONTAINER */
 
 .container {
-  padding: 20px;
   flex: 1;
+  padding: 24px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
 }
 
+/* CARD */
+
 .card {
-  background: #fff;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.05);
+  background: #ffffff;
+  padding: 24px 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  flex: 1 1 400px;
+  max-width: 500px;
+  transition: box-shadow 0.3s ease;
+  will-change: transform;
 }
+.card:hover {
+  box-shadow: 0 10px 28px rgba(0,0,0,0.15);
+  transform: translateY(-4px);
+}
+
+/* FORM ELEMENTS */
 
 input, select, button, textarea {
   width: 100%;
-  padding: 10px;
-  margin-top: 10px;
+  padding: 14px 16px;
+  margin-top: 12px;
   margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
+  border: 1.8px solid #cbd5e1; /* cinza claro */
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #1e293b;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-weight: 500;
+  outline-offset: 2px;
+  outline-color: transparent;
+  user-select: text;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: #2563eb; /* azul vivo */
+  box-shadow: 0 0 6px #2563ebaa;
+  outline-color: #2563eb;
 }
 
 button {
-  background-color: #333;
+  background-color: #1e293b; /* azul escuro */
   color: white;
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-size: 1.1rem;
+  user-select: none;
+}
+button:hover {
+  background-color: #3b82f6; /* azul claro */
+  box-shadow: 0 6px 18px #3b82f6bb;
+}
+button:active {
+  background-color: #2563eb;
+  box-shadow: none;
+  transform: translateY(1px);
 }
 
-button:hover {
-  background-color: #555;
-}
+/* ALERTAS */
 
 .alert {
-  padding: 10px;
-  border-radius: 6px;
-  font-weight: bold;
-  margin-top: 10px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  margin-top: 16px;
+  font-size: 1rem;
+  user-select: none;
+  text-align: center;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
 .alert.red {
-  background-color: #ffdddd;
-  color: #a00;
+  background-color: #fee2e2; /* vermelho claro */
+  color: #b91c1c; /* vermelho escuro */
+  border: 1.5px solid #b91c1c;
+}
+.alert.green {
+  background-color: #d1fae5; /* verde claro */
+  color: #065f46; /* verde escuro */
+  border: 1.5px solid #065f46;
 }
 
-.alert.green {
-  background-color: #ddffdd;
-  color: #060;
-}
+/* ESTATÍSTICAS */
 
 .stat {
-  background: #222;
+  background: #334155; /* azul cinza */
   color: white;
   text-align: center;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 10px 0;
+  padding: 30px 20px;
+  border-radius: 14px;
+  margin: 12px 0;
+  flex: 1 1 160px;
+  max-width: 220px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+.stat:hover {
+  background-color: #475569;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.25);
 }
 
+/* RODAPÉ */
+
 footer {
-  background-color: #222;
-  color: #aaa;
+  background-color: #1e293b;
+  color: #94a3b8;
   text-align: center;
-  padding: 10px;
+  padding: 18px 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  user-select: none;
+  letter-spacing: 0.8px;
+  box-shadow: inset 0 1px 2px #3b4252;
+  margin-top: auto;
 }
+
+/* LISTAS */
 
 ul {
   padding-left: 20px;
 }
 
-@media (min-width: 768px) {
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
+/* MENU */
 
-  .card {
-    flex: 1 1 45%;
-  }
+nav.card {
+  max-width: 340px;
+  margin: 0 auto;
 }
+
 nav.card ul {
   list-style: none;
   padding-left: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 nav.card ul li a {
   display: block;
-  padding: 15px 25px;
-  background-color: #2c3e50;
+  padding: 18px 28px;
+  background-color: #334155;
   color: white;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(44, 62, 80, 0.4);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-  font-size: 18px;
+  border-radius: 14px;
+  box-shadow: 0 6px 12px rgba(51, 65, 85, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+  font-size: 1.2rem;
   text-align: center;
+  user-select: none;
+  letter-spacing: 0.6px;
 }
-
 nav.card ul li a:hover,
-nav.card ul li a:focus {
-  background-color: #3498db;
-  box-shadow: 0 6px 12px rgba(52, 152, 219, 0.6);
-  transform: translateY(-3px);
-  outline: none;
+nav.card ul li a:focus-visible {
+  background-color: #2563eb;
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.7);
+  transform: translateY(-4px);
+  outline-offset: 4px;
+  outline-color: #2563eb;
+  outline-style: solid;
 }
-
 nav.card ul li a:active {
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.5);
+  box-shadow: 0 7px 14px rgba(37, 99, 235, 0.9);
+}
+
+/* RESPONSIVIDADE */
+
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    justify-content: center;
+  }
+
+  .card {
+    flex: 1 1 45%;
+    max-width: 480px;
+  }
+
+  nav.card {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  header {
+    font-size: 1.4rem;
+    padding: 18px 16px;
+  }
+
+  header button {
+    top: 14px;
+    right: 14px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  nav.card ul li a {
+    font-size: 1rem;
+    padding: 14px 20px;
+  }
+
+  .card {
+    padding: 18px 20px;
+    max-width: 100%;
+  }
 }
