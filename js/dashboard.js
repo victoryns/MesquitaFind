@@ -4,24 +4,6 @@
   <meta charset="UTF-8">
   <title>MESQUITA FIND - Dashboard</title>
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    #mapa {
-      width: 100%;
-      height: 300px;
-      border-radius: 10px;
-      margin-top: 10px;
-    }
-    .card ul {
-      list-style: none;
-      padding: 0;
-    }
-    .card ul li {
-      margin-bottom: 8px;
-      background: #eee;
-      padding: 8px;
-      border-radius: 6px;
-    }
-  </style>
 </head>
 <body onload="verificarLogin(['admin','consulta']); carregarDashboard();">
 
@@ -57,7 +39,9 @@
 
     <section class="card">
       <h3><i class="fa fa-map-marker-alt"></i> Mapa de Ocorrências</h3>
-      <div id="mapa">(Carregando mapa...)</div>
+      <div id="mapa" style="width: 100%; height: 300px; background: #ddd; border-radius: 10px; text-align: center; line-height: 300px;">
+        (Mapa aqui futuramente com Google Maps API ou Leaflet)
+      </div>
     </section>
   </main>
 
@@ -65,14 +49,7 @@
     <p>&copy; 2025 MESQUITA FIND</p>
   </footer>
 
-  <!-- Scripts -->
   <script src="js/auth.js"></script>
   <script src="js/dashboard.js"></script>
-  <script src="js/mapa.js"></script>
-
-  <!-- Google Maps API -->
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDosvnNf8V9A2cQ4T7AuZnRgzVncCr7qBQ&callback=inicializarMapa">
-  </script>
 </body>
 </html>
