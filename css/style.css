@@ -403,6 +403,14 @@ nav.card ul li a:focus-visible {
     font-size: 1.6rem;
   }
 
+  /* FUNDO PERSONALIZADO COM IMAGEM DA GCM */
+body {
+  background: url('../img/fundo-gcm.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #f1f5f9; /* Ajuste o contraste */
+}
+
+
   .login-card p {
     font-size: 1rem;
   }
